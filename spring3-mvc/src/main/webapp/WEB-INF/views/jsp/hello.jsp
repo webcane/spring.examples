@@ -28,13 +28,13 @@
 					<span class="icon-bar"></span> 
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="#home">S3MVC</a>
+				<a class="navbar-brand" href="#">S3MVC</a>
 			</div>
 			
 			<div class="collapse navbar-collapse">
 				<ul class="nav navbar-nav navbar-left">
-					<li><a href="${pageContext.request.contextPath}">Домой</a></li>
-					<li class="active"><a href="${pageContext.request.contextPath}/hello">Привет</a></li>
+					<li><a href="${pageContext.request.contextPath}">Home</a></li>
+					<li class="active"><a href="#">Hello</a></li>
 				</ul>
 			</div>
 			
