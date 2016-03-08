@@ -8,11 +8,22 @@ import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
+import cane.brothers.spring.web.service.MessageService;
+
 @EnableWebMvc //mvc:annotation-driven
 @Configuration
 @ComponentScan({ "cane.brothers.spring.web" })
 public class Spring3MVCConfig extends WebMvcConfigurerAdapter {
 
+	@Bean
+    MessageService mockMessageService() {
+        return new MessageService() {
+            public String getMessage() {
+            	return "service message";
+            }
+        };
+    }
+	
 	@Bean
 	public InternalResourceViewResolver viewResolver() {
 		InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
