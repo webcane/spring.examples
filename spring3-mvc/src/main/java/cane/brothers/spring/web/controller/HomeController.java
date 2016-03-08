@@ -1,4 +1,4 @@
-package cane.brothers.spring.web;
+package cane.brothers.spring.web.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
