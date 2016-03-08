@@ -1,0 +1,62 @@
+.navbar-custom {
+	padding: 20px 0;
+	border-bottom: 0;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	transition: background .5s ease-in-out, padding .5s ease-in-out;
+}
+
+.navbar-custom.top-nav-collapse {
+	padding: 0;
+	border-bottom: 1px solid rgba(255, 255, 255, .3);
+	background: #000;
+}
+
+.navbar-custom .navbar-brand {
+	color: #fff;
+	font-weight: 700;
+	text-transform: uppercase;
+}
+
+.navbar-custom .nav a {
+	color: rgba(255, 255, 255, .8);
+}
+
+.navbar-custom .nav a:focus, 
+.navbar-custom .nav a:active,
+.navbar-custom .nav a:hover  {
+	color: #fff;
+}
+
+.navbar-custom .nav li a:hover {
+	background-color: transparent;
+}
+
+.navbar-custom .nav li.active a {
+	color: #fff;
+}
+
+
+
+.page { overflow: hidden }
+.page .content { padding: 60px 0 }
+.page .content.cover { padding: 240px 0 }
+.page .heading h2 {
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+#home {
+  color: #fff;
+  background-image: url(../img/home.jpg);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+
+#home h1 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-size: 60px;
+}
+#home a { margin: 0 5px; color: #fff; }

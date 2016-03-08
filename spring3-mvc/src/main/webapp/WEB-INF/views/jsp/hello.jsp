@@ -3,8 +3,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>s3mvc example</title>
+	<title>${title}</title>
+	
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
 	
 	<s:url value="/resources/css/app.css" var="appCss" />
 	<s:url value="/resources/css/bootstrap.min.css" var="bootstrapCss" />
@@ -31,11 +33,11 @@
 			
 			<div class="collapse navbar-collapse">
 				<ul class="nav navbar-nav navbar-left">
-					<li class="active"><a href="${pageContext.request.contextPath}/">Домой</a></li>
-					<li><a href="${pageContext.request.contextPath}/hello">Привет</a></li>
+					<li><a href="${pageContext.request.contextPath}">Домой</a></li>
+					<li class="active"><a href="${pageContext.request.contextPath}/hello">Привет</a></li>
 				</ul>
 			</div>
-					
+			
 		</div>
 	</nav>
 
@@ -46,9 +48,16 @@
 			
 				<div class="row">
 					<div class="col-lg-12">
-						<h1 class="brand-heading">${message}</h1>
+						<h2 class="brand-heading">${msg}</h2>
 					</div>
 				</div>
+				
+				<div class="row">
+					<div class="col-md-12">
+						<h3>pageContext.request.contextPath - ${pageContext.request.contextPath}</h3>
+					</div>
+				</div>
+				
 			</div>				
 		</div>
 	</header>
