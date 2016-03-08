@@ -5,6 +5,8 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 import org.springframework.ui.ModelMap;
 
+import cane.brothers.spring.web.controller.HomeController;
+
 public class HomeControllerTest {
 
 
