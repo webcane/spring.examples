@@ -18,18 +18,14 @@ import cane.brothers.spring.domain.Customer;
 @Component
 public class CustomerManager {
 
-	private static final Logger log = LoggerFactory.getLogger(CustomerManager.class);
-
 	@Autowired
 	JdbcTemplate jdbcTemplate;
 
 	public void dropTable() {
-		log.info("drop customers table");
 		jdbcTemplate.execute("DROP TABLE customers IF EXISTS");
 	}
 
 	public void createTable() {
-		log.info("create customers table");
 		jdbcTemplate.execute("CREATE TABLE customers(" + "id SERIAL, first_name VARCHAR(255), last_name VARCHAR(255))");
 	}
 
@@ -44,8 +40,8 @@ public class CustomerManager {
 						Customer customer = customers.get(i);
 						ps.setString(1, customer.getFirstName());
 						ps.setString(2, customer.getLastName());
-						log.info(String.format("Inserting customer record for %s %s", customer.getFirstName(),
-								customer.getLastName()));
+						//log.info(String.format("Inserting customer record for %s %s", customer.getFirstName(),
+						//		customer.getLastName()));
 					}
 
 					@Override
