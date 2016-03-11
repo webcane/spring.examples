@@ -10,22 +10,22 @@ import cane.brothers.spring.domain.Customer;
 import cane.brothers.spring.persistence.CustomerManager;
 
 public class CustomerApp {
-
+	
 	public static void main(String[] args) {
-		try (ConfigurableApplicationContext context = new AnnotationConfigApplicationContext(
-				CustomerConfiguration.class)) {
+		try (ConfigurableApplicationContext context = 
+				new AnnotationConfigApplicationContext(CustomerConfiguration.class)) {
 
 			CustomerManager customerDAO = (CustomerManager) context.getBean("customerManager");
+			
+	        List<Customer>customers = new ArrayList<Customer>();
+	        customers.add(new Customer("John", "Woo"));
+	        customers.add(new Customer("Jeff", "Dean"));
+	        customers.add(new Customer("Josh", "Bloch"));
+	        
+	        customerDAO.dropTable();
+	        customerDAO.createTable();
+	        customerDAO.inserTableData(customers);
 
-			List<Customer> customers = new ArrayList<Customer>();
-			customers.add(new Customer("John", "Woo"));
-			customers.add(new Customer("Jeff", "Dean"));
-			customers.add(new Customer("Josh", "Bloch"));
-
-			customerDAO.dropTable();
-			customerDAO.createTable();
-			customerDAO.inserTableData(customers);
-
-		}
+		} 
 	}
 }

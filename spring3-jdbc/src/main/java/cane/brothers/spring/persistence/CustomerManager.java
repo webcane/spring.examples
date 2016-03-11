@@ -11,13 +11,14 @@ import org.springframework.jdbc.core.BatchPreparedStatementSetter;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 
-import cane.brothers.spring.aspect.DbLog;
 import cane.brothers.spring.domain.Customer;
+
+
 
 @Component
 public class CustomerManager {
 
-	private static final Logger log = LoggerFactory.getLogger(DbLog.class);
+	private static final Logger log = LoggerFactory.getLogger(CustomerManager.class);
 
 	@Autowired
 	JdbcTemplate jdbcTemplate;
@@ -32,7 +33,7 @@ public class CustomerManager {
 		jdbcTemplate.execute("CREATE TABLE customers(" + "id SERIAL, first_name VARCHAR(255), last_name VARCHAR(255))");
 	}
 
-	public void inserTableData(List<Customer> customers) {
+	public void inserTableData(final List<Customer> customers) {
 		
 		// Uses JdbcTemplate's batchUpdate operation to bulk load data
 		jdbcTemplate.batchUpdate("INSERT INTO customers(first_name, last_name) VALUES (?,?)",
