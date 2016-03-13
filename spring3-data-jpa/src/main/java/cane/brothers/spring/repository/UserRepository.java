@@ -1,11 +1,11 @@
 package cane.brothers.spring.repository;
 
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.CrudRepository;
 
 import cane.brothers.spring.domain.User;
 
-public interface UserRepository extends CrudRepository<User, Long> {
+public interface UserRepository extends JpaRepository<User, Long> {
 
 	Iterable<User> findByFirstname(String firstName);
 	
@@ -13,7 +13,7 @@ public interface UserRepository extends CrudRepository<User, Long> {
 	
 	Iterable<User> findByActive(boolean active);
 	
-	@Query("FROM Users where active = ?1 ORDER BY lastname ASC")
+	@Query("FROM User where active = ?1 ORDER BY lastname ASC")
 	Iterable<User> findAllActiveUsers(boolean active);
 	
 }

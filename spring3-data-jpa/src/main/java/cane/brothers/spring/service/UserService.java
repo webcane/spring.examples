@@ -1,5 +1,7 @@
 package cane.brothers.spring.service;
 
+import org.springframework.data.domain.Page;
+
 import cane.brothers.spring.domain.User;
 
 public interface UserService {
@@ -13,4 +15,6 @@ public interface UserService {
 	Iterable<User> findUsersByName(String username, boolean isOrderByLastName);
 	
 	Iterable<User> findAllActiveUsers(boolean isOrderByLastName);
+	
+	Page<User> findFirst3Users();
 }

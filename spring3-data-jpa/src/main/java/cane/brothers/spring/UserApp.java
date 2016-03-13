@@ -22,8 +22,13 @@ public class UserApp {
 			userService.addUser(new User("Jeff", "Dean"));
 			userService.addUser(new User("Josh", "Bloch", true));
 			userService.addUser(new User("John", "Bull"));
+			
+			log.info("find first 3 users");
+			for (User u : userService.findFirst3Users()) {
+				log.info(u.toString());
+			}
 
-			log.info("active users");
+			log.info("\nactive users");
 			for (User u : userService.findAllActiveUsers(false)) {
 				log.info(u.toString());
 			}
