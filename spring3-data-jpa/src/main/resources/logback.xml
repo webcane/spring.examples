@@ -8,16 +8,23 @@
 		</Pattern>
 	    </layout>
 	</appender>
-
-<!-- 	<logger name="org.springframework" level="info" additivity="false">
-		<appender-ref ref="STDOUT" />
-	</logger> -->
 	
-	<logger name="cane.brothers.spring" level="info" additivity="false">
-		<appender-ref ref="STDOUT" />
+	<appender name="APP" class="ch.qos.logback.core.ConsoleAppender">
+	    <layout class="ch.qos.logback.classic.PatternLayout">
+		<Pattern>
+			%msg%n
+		</Pattern>
+	    </layout>
+	</appender>
+	
+	<logger name="ch.qos.logback" level="ERROR" />
+ 	<logger name="org.springframework" level="ERROR" />
+	
+	<logger name="cane.brothers.spring" level="INFO" additivity="false">
+		<appender-ref ref="APP" />
 	</logger>
 	 
-	<root level="error">
+	<root level="OFF">
 		<appender-ref ref="STDOUT" />
 	</root>
 

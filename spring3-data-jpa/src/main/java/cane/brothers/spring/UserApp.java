@@ -23,7 +23,13 @@ public class UserApp {
 			userService.addUser(new User("Josh", "Bloch"));
 			userService.addUser(new User("John", "Bull"));
 
-			for (User u : userService.getAllUsers()) {
+			for (User u : userService.findUsersByName("John", true)) {
+				log.info(u.toString());
+			}
+			
+			log.info("");
+			
+			for (User u : userService.findUsersByName("John", false)) {
 				log.info(u.toString());
 			}
 

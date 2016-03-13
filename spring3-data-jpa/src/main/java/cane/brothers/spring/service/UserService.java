@@ -9,4 +9,6 @@ public interface UserService {
 	Iterable<User> getAllUsers();
 
 	User getUserByName(String username);
+	
+	Iterable<User> findUsersByName(String username, boolean isOrderByLastName);
 }

@@ -8,4 +8,6 @@ public interface UserRepository extends CrudRepository<User, Long> {
 
 	Iterable<User> findByFirstname(String firstName);
 	
+	Iterable<User> findByFirstnameOrderByLastnameAsc(String firstName);
+	
 }

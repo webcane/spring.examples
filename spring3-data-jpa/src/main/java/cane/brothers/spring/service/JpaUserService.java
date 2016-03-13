@@ -21,11 +21,16 @@ public class JpaUserService implements UserService {
 	public User getUserByName(String username) {
 		User user = null;
 		boolean uniqueUser = true;
-		Iterable<User> users = userRepo.findByFirstname(username);
+		Iterable<User> users = userRepo.findByFirstnameOrderByLastnameAsc(username);
 		for(User u: users) {
 			user = (uniqueUser ? u : null);
 			uniqueUser = false;
 		}
 		return user;
+	}
+	
+	public Iterable<User> findUsersByName(String username, boolean isOrderByLastName) {
+		return (isOrderByLastName ? userRepo.findByFirstnameOrderByLastnameAsc(username) :
+			userRepo.findByFirstname(username));
 	}
 }
