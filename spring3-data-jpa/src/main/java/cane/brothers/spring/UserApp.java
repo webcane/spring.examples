@@ -18,21 +18,33 @@ public class UserApp {
 
 			UserService userService = context.getBean(UserService.class);
 
-			userService.addUser(new User("John", "Woo"));
+			userService.addUser(new User("John", "Woo", true));
 			userService.addUser(new User("Jeff", "Dean"));
-			userService.addUser(new User("Josh", "Bloch"));
+			userService.addUser(new User("Josh", "Bloch", true));
 			userService.addUser(new User("John", "Bull"));
 
+			log.info("active users");
+			for (User u : userService.findAllActiveUsers(false)) {
+				log.info(u.toString());
+			}
+			
+			log.info("\nactive users with ordering");
+			for (User u : userService.findAllActiveUsers(true)) {
+				log.info(u.toString());
+			}
+			
+			
+			log.info("\nfind Johns with ordering");
 			for (User u : userService.findUsersByName("John", true)) {
 				log.info(u.toString());
 			}
 			
-			log.info("");
-			
+			log.info("\nfind Johns");
 			for (User u : userService.findUsersByName("John", false)) {
 				log.info(u.toString());
 			}
 
+			log.info("\nfind single John");
 			User john = userService.getUserByName("John");
 			if (john != null) {
 				log.info(john.toString());

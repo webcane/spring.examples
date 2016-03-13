@@ -33,4 +33,9 @@ public class JpaUserService implements UserService {
 		return (isOrderByLastName ? userRepo.findByFirstnameOrderByLastnameAsc(username) :
 			userRepo.findByFirstname(username));
 	}
+	
+	public Iterable<User> findAllActiveUsers(boolean isOrderByLastName) {
+		return (isOrderByLastName ? userRepo.findAllActiveUsers(true) :
+			userRepo.findByActive(true));
+	}
 }
