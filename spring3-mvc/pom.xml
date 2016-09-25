@@ -75,7 +75,7 @@
     <plugins>	
 		<!--  используя m2 конфигурацию запуска для целей tomcat7:deploy, tomcat7:undeploy 
 		можно деплоить web приложение на запущенный Tomcat автоматически -->	
-      <plugin>
+      <!-- <plugin>
         <groupId>org.apache.tomcat.maven</groupId>
         <artifactId>tomcat7-maven-plugin</artifactId>
         <version>2.2</version>
@@ -84,17 +84,30 @@
           <server>Tomcat7</server>
 		  <path>/${project.build.finalName}</path>
         </configuration>
-      </plugin>
+      </plugin> -->
       
       			<!-- Tomcat plugin for embedded tomcat -->
-			<!-- <plugin>
+	<!-- 	<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>tomcat-maven-plugin</artifactId>
 				<version>1.1</version>
 				<configuration>
 					<path>/${project.build.finalName}</path>
 				</configuration>
-			</plugin> -->
+		</plugin> -->
+		
+		<!-- embedded Jetty server, for testing -->
+		<plugin>
+			<groupId>org.eclipse.jetty</groupId>
+			<artifactId>jetty-maven-plugin</artifactId>
+			<version>9.2.11.v20150529</version>
+			<configuration>
+				<scanIntervalSeconds>10</scanIntervalSeconds>
+				<webApp>
+					<contextPath>/${project.build.finalName}</contextPath>
+				</webApp>
+			</configuration>
+		</plugin>
 			
        <plugin>
             <groupId>org.apache.maven.plugins</groupId>
